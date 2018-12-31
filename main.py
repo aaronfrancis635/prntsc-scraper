@@ -42,6 +42,7 @@ def getImageLink(urlPart):
 
 # Saving image if url is correct
 def saveImage(url, name):
+    os.makedirs('./img/', exist_ok = True)
     if url[0] == '/' or url == 'Invalid url':
         print('No image found')
         pass
