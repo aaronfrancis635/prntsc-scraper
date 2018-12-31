@@ -5,9 +5,9 @@ Simple prnt.sc screenshot scraper with Cloudflare bypass. It was made as a side 
 ## Dependencies
 
 - Python 3.x
-- [BeautifulSoup 4] (https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
-- [cfscrape] (https://github.com/Anorov/cloudflare-scrape)
-- [Node.js] (https://nodejs.org/en/) for cfscrape
+- [BeautifulSoup 4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+- [cfscrape](https://github.com/Anorov/cloudflare-scrape)
+- [Node.js](https://nodejs.org/en/) for cfscrape
 
 
 ## Usage
