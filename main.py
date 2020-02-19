@@ -1,10 +1,9 @@
-# Bitcoin - 1PepYk8tPxzwMPVsJ2PJSdHA4fiLxAmUqo
-# Ethereum - 0x19288d5c86Cd7A341b1C38Ce6C60769b863D4124
-
 from bs4 import BeautifulSoup # pip install bs4
 import cfscrape # pip install cfscrape
 import os
 import random
+import _thread
+import time
 
 def menu():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -16,7 +15,16 @@ def menu():
 
     menuInput = input("Choose an option: ")
     if menuInput == "1":
-        fullRandom()
+        amount = int(input('Number of threads: '))
+        for thread in range(1, amount + 1):
+            thread = str(thread)
+            try:
+                _thread.start_new_thread(fullRandom, (thread,))
+            except:
+                print('Error starting thread ' + thread)
+        print('Succesfully started ' + thread + ' threads.')
+        while True:
+            time.sleep(1)
     elif menuInput == "2":
         predefRand()
     elif menuInput == "3":
@@ -52,14 +60,12 @@ def saveImage(url, name):
             file.write(response)
 
 # Using randomised url to scrape random pictures
-def fullRandom():
-    amount = int(input('Number of pictures to download: '))
-    for i in range(amount):
+def fullRandom(thread):
+    while True:
         code = generateRandomUrl()
-        print(f'{i + 1}: Trying https://prnt.sc/{code}')
+        print(f'Trying https://prnt.sc/{code}')
         saveImage(getImageLink(code), 'img/' + code)
-    
-    end()
+
 
 # Using predefined url part, provided from user
 def predefRand():
