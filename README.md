@@ -21,7 +21,7 @@ There are two modes:
 
 ## TO-DO list
 
-- [ ] Threading
+- [X] Threading
 - [ ] ...
 - [ ] ...
 
